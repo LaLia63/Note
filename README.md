@@ -1,40 +1,98 @@
-A simple, colorful, and responsive sticky notes web app where you can create, edit, delete, and search notes.
-Notes are saved in your browser’s local storage — no login required!
+# Sticky Notes
 
-![image](https://github.com/user-attachments/assets/c0cd7e05-1389-468a-803b-fc70bda9bb99)
+A simple, responsive **Sticky Notes web application** built with vanilla HTML, CSS, and JavaScript. Users can create, edit, delete, search, and customize their notes.
 
+## Live Demo
 
-Features
-✨ Add a note with a title, content, and custom color.
-✨ Edit and delete existing notes.
-✨ Search notes by title or content.
-✨ Responsive grid layout for notes.
-✨ Notes are stored in localStorage — they persist even after refresh.
-✨ Clean and modern UI with modal dialogs.
+[View Sticky Live Demo](https://lalia63.github.io/Note/)
 
-Project Structure
-📁 project/
-├── index.html         → Main HTML file
-├── style.css          → Styling
-└── script.js          → App functionality
+## Features
 
-How to Run
-1️⃣ Clone or download the project files.
-2️⃣ Open index.html in your browser.
-3️⃣ Start adding your notes!
+* Create, edit, and delete notes
+* Search notes
+* Customize note background and text colors
+* Responsive design for desktop, tablet, and mobile
+* Browser-based note management
+* SweetAlert2 notifications
+* Font Awesome icons
 
-Technologies Used
+## Technologies
 
-✅HTML5
-✅CSS3 (with CSS Variables & Responsive Design)
-✅JavaScript (ES6+)
-✅Font Awesome for icons
-✅Browser localStorage for saving notes
+* **HTML5** — Page structure
+* **CSS3** — Styling and responsive layout
+* **JavaScript** — Note management and interactions
+* **SweetAlert2** — Notifications and dialogs
+* **Font Awesome** — Icons
 
-Available Note Colors
-The app provides a variety of background colors for notes that work well with black text.
-Colors include warm yellows, cool blues, greens, purples, reds, and more.
+## Project Structure
 
-Author
-Made with ❤️ by Lia.
-Feel free to fork or improve this project!
+```text
+Sticky/
+├── index.html
+├── style.css
+├── script.js
+├── sticky.jpg
+└── README.md
+```
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone <repository_url>
+```
+
+### 2. Open the project
+
+```bash
+cd Note
+```
+
+### 3. Run the application
+
+No build tools or dependencies are required.
+
+Simply open `index.html` in your browser.
+
+For a better development experience, you can use **VS Code with Live Server**.
+
+### 4. Start developing
+
+Edit the following files as needed:
+
+```text
+index.html   → Page structure
+style.css    → Styling and responsive design
+script.js    → Application functionality
+```
+
+## Purpose
+
+This is a **practice and educational project** created to improve my skills in:
+
+* DOM manipulation
+* JavaScript event handling
+* Responsive web design
+* Form handling
+* Browser-based data management
+* UI/UX implementation
+
+## Responsive Design
+
+The application is designed to work across:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+## Author
+
+**Hsu Yati Zaw (Lia)**
+
+GitHub: [LaLia63](https://github.com/LaLia63)
+
+## License
+
+© 2026 Hsu Yati Zaw (Lia). Created for learning and practice. You may view and use the project for educational purposes, but do not claim or redistribute it as your own work.

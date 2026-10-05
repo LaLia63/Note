@@ -13,13 +13,22 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
+    min-height: 100vh;
     background-color: #ffffff;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -112,7 +121,7 @@ body {
 
 .notes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 20px;
 }
 
@@ -151,6 +160,7 @@ body {
     margin-bottom: 15px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .note-footer {
@@ -161,13 +171,13 @@ body {
 
 .note-date {
     font-size: 0.8rem;
-    color: var(--secondary-color);
+    color: inherit;
 }
 
 .note-actions i {
     margin-left: 10px;
     cursor: pointer;
-    color: var(--secondary-color);
+    color: inherit;
     transition: color 0.3s ease;
 }
 
@@ -196,23 +206,26 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+    z-index: 1000;
+    inset: 0;
     width: 100%;
-    height: 112%;
+    padding: 20px;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
+    background-color: #ffffff;
+    margin: 5vh auto;
     padding: 20px;
     border-radius: 8px;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
+    max-height: fit-content;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header {
@@ -257,33 +270,37 @@ body {
 }
 
 .color-picker {
-    margin: 20px 0;
-}
-
-.color-options {
     display: flex;
-    gap: 15px;
-    margin-top: 10px;
+    gap: 30px;
+    align-items: center;
 }
 
-.color-option {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.color-picker-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.color-picker-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-picker-control input[type="color"] {
+    width: 50px;
+    height: 35px;
+    padding: 2px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
     cursor: pointer;
-    border: 2px solid transparent;
+    background-color: white;
 }
 
-.color-option:hover {
-    border-color: var(--border-color);
-}
-
-input[type="radio"]:checked + .color-option {
-    border-color: var(--primary-color);
-}
-
-input[type="radio"] {
-    display: none;
+.color-picker-control span {
+    font-size: 14px;
+    font-family: monospace;
+    color: #ffffff;
 }
 
 .modal-footer {
@@ -293,12 +310,139 @@ input[type="radio"] {
     margin-top: 20px;
 }
 
+.swal-confirm,
+.swal-cancel {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.swal-confirm {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.swal-confirm:hover {
+    background-color: var(--hover-color);
+}
+
+.swal-cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.swal-cancel:hover {
+    background-color: #d0d0d0;
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .app-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .modal {
+        padding: 15px;
+    }
+
+    .modal-content {
+        margin: 5vh auto;
+        max-height: fit-content;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+
+    .app-header {
+        margin-bottom: 20px;
+    }
+
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .app-header h1 i {
+        margin-right: 6px;
+    }
+
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
     .notes-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
-    
+
+    .color-picker {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .color-picker-group {
+        width: 100%;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
     .modal-content {
-        margin: 20% auto;
+        margin: 10px auto;
+        padding: 15px;
+        max-height:fit-content;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        padding: 10px;
+    }
+
+    .app-header h1 {
+        font-size: 1.3rem;
+    }
+
+    #search-input {
+        font-size: 14px;
+        padding: 10px 40px 10px 40px;
+    }
+
+    .modal-content {
+        margin: 10px auto;
+        padding: 12px;
+        height: 100vh;
+        max-height: fit-content;
+    }
+
+    .color-picker-control input[type="color"] {
+        width: 45px;
+        height: 32px;
+    }
+
+    .color-picker-control span {
+        font-size: 13px;
     }
 }
